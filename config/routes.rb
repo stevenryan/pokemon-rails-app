@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'rooms/show'
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
   end
