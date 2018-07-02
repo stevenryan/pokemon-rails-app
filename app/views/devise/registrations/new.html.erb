@@ -1,37 +1,31 @@
-<div class="container">
+<div class="container" id="sign-up-form">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <h2 class="text-center">Sign up</h2>
+    <h1>Get in touch with like-minded trainers!</h1>
+    <h3>Play games, chat, battle, and more!</h3>
 
-      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
+    <div class="col-sm-offset-4 col-sm-4">
+      <h3>Sign up <small>it's free!</small></h3>
 
-        <div class="field">
-          <%= f.email_field :username, autofocus: true, autocomplete: "username" %>
-        </div>
-
-        <div class="field">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
+      <%= bootstrap_form_for(resource,
+                             :as => resource_name,
+                             :url => registration_path(resource_name)) do |f| %>
+        <%= f.label :username %><br />
+        <%= f.text_field :username,
+      	           placeholder: 'username (will be shown publicly)',
+      	           class: 'form-control' %>
+        <%= f.label :email %><br />
+        <%= f.text_field :email,
+      	           placeholder: 'email',
+      	           class: 'form-control' %>
+        <%= f.label :password %><br />
+        <%= f.password_field :password,
+                             placeholder: 'password',
+                             class: 'form-control' %>
+        <%= f.password_field :password_confirmation,
+                             placeholder: 'password confirmation',
+                             class: 'form-control' %>
+        <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
       <% end %>
-
-      <%= render "devise/shared/links" %>
-
 
     </div>
   </div>
