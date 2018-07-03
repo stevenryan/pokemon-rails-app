@@ -1,3 +1,5 @@
 <div class="message">
-  <p><%= message.content %></p>  
+  <% @messages.each do |m| %>
+  <p><%= m.content %></p>
+  <% end %>
 </div>
