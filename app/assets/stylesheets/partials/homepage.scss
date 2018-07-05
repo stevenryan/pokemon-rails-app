@@ -1,14 +1,12 @@
 #main-content {
   background: white;
-  min-height: 800px;
-  margin: 0;
-  padding: 10px 0 0 0;
+  height: 650px;
+  max-height: 650px;
+  // padding: 10px 0 0 0;
 }
 
 #side-menu {
-  padding: 0;
-  #links-list {
-    margin-top: 20px;
+  #trainer-list {
     padding: 0;
     font-size: 14px;
     font-size: 1.4rem;

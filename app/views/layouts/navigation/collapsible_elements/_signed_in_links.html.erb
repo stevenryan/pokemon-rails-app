@@ -1,5 +1,12 @@
+<li class="dropdown nav-link pc-menu">
+  <a href="/games" id="games-link" data-turbolinks="false">Games Hub</a>
+</li>
 
-<li class="dropdown pc-menu">
+<li class="dropdown nav-link pc-menu">
+  <%= link_to 'PokéMart', '#', :id => "store-link" %>
+</li>
+
+<li class="dropdown nav-link pc-menu">
   <a id="user-settings" class="dropdown-toggle" data-toggle="dropdown" href="#">
     <span id="user-name"><%= current_user.username %></span>
     <span class="caret"></span>

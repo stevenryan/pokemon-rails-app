@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div id="side-menu"  class="col-sm-3">
+      <div id="trainer-list">
+        <% @users.each do |u| %>
+        <div class="player-link">
+          <a href="#"><%= u.username %></a>
+        </div>
+        <% end %>
+      </div>
+    </div><!-- side-menu -->
+
+    <div class="col-sm-9">
+      <div id="messages">
+        <%= render @messages %>
+      </div>
+      <div class="input-box">
+        <input type="text" class="input-box_text" id="message_input"/>
+        <span id="sendButton">
+          <%= link_to "Send", "#", :onClick => "sendMessage()" %>
+        </span>
+      </div>
+    </div><!-- main-content -->
+
+  </div><!-- row -->
+</div><!-- container -->

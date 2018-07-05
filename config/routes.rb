@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'pages/index'
+  get 'games', to: 'pages#gameshub'
+
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
   end
@@ -10,6 +11,6 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, :controllers => {:registrations => "registrations"}
-  root to: 'rooms#show'
+  root to: 'pages#index'
 
 end
