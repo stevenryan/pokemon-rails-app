@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  console.log('hello')
+  console.log('hello');
 var letters = document.getElementsByClassName("letters")
 var usedLetters = document.getElementById("usedLetters")
 var pokemonName = document.getElementById("pokemonName")
@@ -97,24 +97,24 @@ function newGame(){
 
   function livesDisplay(){
     if (lives === 6) {
-      life1.src = "images/pokeball-life.png";
-      life2.src = "images/pokeball-life.png";
-      life3.src = "images/pokeball-life.png";
-      life4.src = "images/pokeball-life.png";
-      life5.src = "images/pokeball-life.png";
-      life6.src = "images/pokeball-life.png";
+      life1.src = "../pokeball-life.png";
+      life2.src = "../pokeball-life.png";
+      life3.src = "../pokeball-life.png";
+      life4.src = "../pokeball-life.png";
+      life5.src = "../pokeball-life.png";
+      life6.src = "../pokeball-life.png";
     } else if (lives === 5){
-      life6.src = "images/lost-life.png";
+      life6.src = "../lost-life.png";
     } else if (lives === 4){
-      life5.src = "images/lost-life.png";
+      life5.src = "../lost-life.png";
     } else if (lives === 3){
-      life4.src = "images/lost-life.png";
+      life4.src = "../lost-life.png";
     } else if (lives === 2){
-      life3.src = "images/lost-life.png";
+      life3.src = "../lost-life.png";
     } else if (lives === 1){
-      life2.src = "images/lost-life.png";
+      life2.src = "../lost-life.png";
     } else if (lives === 0){
-      life1.src = "images/lost-life.png";
+      life1.src = "../lost-life.png";
       loseModal();
     } else {}
   }
@@ -206,15 +206,15 @@ function typeColor(type){
 
 function winModal(){
   setTimeout (function(){youWin.style.display = "block";}, 1000);
-  pokeImg.src = "images/officialArt/"+entries[randomNum].dexNum+".png"
-  pokeImg2.src = "images/sprites/"+entries[randomNum].dexNum+".png"
+  pokeImg.src = "../officialArt/"+entries[randomNum].dexNum+".png"
+  pokeImg2.src = "../sprites/"+entries[randomNum].dexNum+".png"
   pokeInfo.innerHTML = entries[randomNum].description
 }
 
 function loseModal(){
   setTimeout (function(){youLose.style.display = "block";}, 1000);
   loseText.innerHTML = "It's "+entries[randomNum].name+"! Loser, you'll never be a Pokemon Champion!"
-  pokeImg3.src = "images/sprites/"+entries[randomNum].dexNum+".png"
+  pokeImg3.src = "../sprites/"+entries[randomNum].dexNum+".png"
 }
 
 resetLink.addEventListener('click', function(){
@@ -230,4 +230,4 @@ resetLink2.addEventListener('click', function(){
 resetBttn.addEventListener('click', function(){
   newGame();
 });
-}
+})
