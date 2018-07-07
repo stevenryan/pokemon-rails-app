@@ -1,0 +1,396 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr 3.5fr 1fr;
+  background-image: url(/assets/hangman/kanto-bg2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+
+#title {
+  font-family: headerFont;
+  font-size: 60px;
+  color: yellow;
+  text-shadow: -3px 0 #3399ff, 0 3px #3399ff, 3px 0 #3399ff, 0 -3px #3399ff;
+  margin-bottom: -20px;
+  margin-top: -1px; }
+
+#generation {
+  font-family: generalText;
+  font-size: 18px;
+  margin-bottom: -1px; }
+
+.header {
+  width: 80%;
+  text-align: center;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background: rgba(226, 226, 226, 0.6);
+  margin: 10px auto;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 10px 0; }
+
+.display {
+  width: 80%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin: 10px auto;
+  background: rgba(226, 226, 226, 0.6);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  grid-template-rows: 2fr .5fr .6fr; }
+
+.wordOutput {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin: 5px;
+  text-align: center; }
+
+.wordOutput p {
+  font-family: generalText;
+  font-size: 16px; }
+
+#pokemonName {
+  font-size: 48px;
+  margin-top: 80px;
+  font-family: generalText; }
+
+.guessed {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin: 5px;
+  font-family: generalText;
+  font-size: 12px;
+  padding-left: 10px;
+  text-align: center;
+  height: 3em; }
+
+#usedLetters {
+  margin-left: 5px; }
+
+.lives {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  margin: 5px;
+  text-align: center;
+  font-family: generalText;
+  font-size: 12px; }
+
+.lives img {
+  width: 50px;
+  margin: 0 auto; }
+
+#hintBttn {
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  outline: 0;
+  float: right;
+  margin: 10px 10px 0 0; }
+
+#hintBox {
+  text-align: center;
+  padding-top: 50px;
+  font-family: generalText; }
+
+.typeTitle {
+  font-size: 12px; }
+
+#type {
+  margin: 40px auto 40px auto;
+  padding: 20px 0px;
+  width: 80%;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: generalText;
+  font-size: 10px; }
+
+#type2 {
+  margin: 10px auto;
+  padding: 20px 0px;
+  width: 80%;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: generalText;
+  font-size: 10px; }
+
+.hintSection {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  margin: 5px; }
+
+.keyboard {
+  width: 80%;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  margin: 10px auto;
+  background: rgba(226, 226, 226, 0.6);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 9fr 2fr;
+  grid-template-rows: auto auto; }
+
+.row1 {
+  margin-top: 5px;
+  margin-left: 20px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2; }
+
+.row2 {
+  margin-left: 20px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3; }
+
+.letters {
+  width: 60px;
+  height: 50px;
+  margin-left: 3px;
+  border-radius: 5px;
+  font-family: generalText; }
+
+.letters:focus {
+  outline: none; }
+
+.letters:hover {
+  background-color: #80ccff; }
+
+.letters:active {
+  background-color: #4db8ff; }
+
+.resetKey {
+  float: right;
+  width: 100%;
+  border-radius: 10px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  text-align: center; }
+
+#resetBttn {
+  background-color: #ffffff;
+  display: block;
+  width: 80%;
+  height: 90%;
+  margin-top: 5px;
+  margin-left: 5px;
+  justify-content: center;
+  border-radius: 5px;
+  font-family: generalText;
+  font-size: 18px; }
+
+#resetBttn:focus {
+  outline: none; }
+
+#resetBttn:hover {
+  background-color: #80ccff; }
+
+#resetBttn:active {
+  background-color: #4db8ff; }
+
+.modalWin {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.contentWin {
+  border-radius: 5px;
+  position: relative;
+  background-color: #ccffcc;
+  margin: 0 auto;
+  padding: 0;
+  margin: auto;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  font-family: generalText; }
+
+.pokeText {
+  position: absolute;
+  color: #99ff99;
+  z-index: 4;
+  right: 70px;
+  bottom: 130px; }
+
+.bgWhite {
+  width: 65%;
+  height: 600px;
+  background-color: white;
+  position: absolute;
+  display: inline;
+  top: 2px;
+  left: 2px; }
+
+#dex {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+  position: relative;
+  z-index: 3; }
+
+#profOak {
+  position: absolute;
+  width: 20%;
+  z-index: 2;
+  top: 30px;
+  right: 50px; }
+
+.dexDisplay {
+  position: absolute;
+  width: 60%;
+  top: 70px;
+  left: 20px; }
+
+#pokeImg {
+  max-width: 300px;
+  position: absolute;
+  left: 60px; }
+
+#pokeImg2 {
+  width: 150px;
+  position: absolute;
+  right: 80px;
+  top: 65px; }
+
+.dexInfo {
+  position: absolute;
+  width: 680px;
+  bottom: 110px;
+  left: 27px;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px;
+  background-color: #ccffcc;
+  border-radius: 5px; }
+
+#resetLink {
+  text-decoration: none;
+  color: #99ff99;
+  font-size: 18px; }
+
+#resetLink:hover {
+  font-weight: bold;
+  text-shadow: 0 0px 3px #ccffcc; }
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+.modalLose {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4); }
+
+.contentLose {
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  margin: auto;
+  width: 80%;
+  height: 600px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  font-family: generalText; }
+
+#rivalGary {
+  width: 350px;
+  position: absolute;
+  z-index: 3;
+  bottom: 10px;
+  left: 40px; }
+
+#badges {
+  position: absolute;
+  z-index: 2;
+  right: -30px; }
+
+#textBox {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  right: 90px; }
+
+#pokeImg3 {
+  position: absolute;
+  width: 100px;
+  top: 40px;
+  left: 25px; }
+
+.loseDiv {
+  position: absolute;
+  z-index: 3;
+  width: 450px;
+  bottom: 60px;
+  right: 118px;
+  text-align: center; }
+
+#resetLink2 {
+  text-decoration: none;
+  color: black;
+  font-size: 18px; }
+
+#resetLink2:hover {
+  font-weight: bold;
+  text-shadow: 0 0px 3px #595959; }
+
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0; }
+  to {
+    top: 0;
+    opacity: 1; } }

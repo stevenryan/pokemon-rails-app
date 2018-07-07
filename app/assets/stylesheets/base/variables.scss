@@ -1,2 +1,12 @@
 $navbarColor: #323738;
 $backgroundColor: #f0f0f0;
+
+@font-face {
+  font-family: headerFont;
+  src: url(/assets/Ketchum.otf) format("truetype"); }
+@font-face {
+  font-family: generalText;
+  src: url(PokemonClassic.ttf) format("truetype"); }
+@font-face {
+  font-family: unknown;
+  src: url(unown.ttf) format("truetype"); }

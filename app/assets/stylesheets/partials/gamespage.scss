@@ -1,10 +1,10 @@
 // Carousel configuration parameters
-$item-width: 40%; // Now we can use percentages!
+$item-width: 70%; // Now we can use percentages!
 $item-separation: 0px; // This now is set with Js
 $viewer-distance: 500px;
 
 .carousel {
-	padding: 20px;
+	padding: 30px 20px 20px 20px;
 
 	perspective: $viewer-distance;
 	overflow: hidden;
@@ -44,18 +44,47 @@ $viewer-distance: 500px;
 		justify-content: center;
 		margin: 20px 0 0;
 
-		button {
+		button, .btn, .btn-default{
 			flex: 0 0 auto;
 			margin: 0 5px;
 
 			cursor: pointer;
 
 			color: #333;
-			background: none;
+			background: white;
 			border: 1px solid;
 			letter-spacing: 1px;
 			padding: 5px 10px;
 		}
-	}
 
+    button:focus{
+      outline: 0;
+    }
+	}
+}
+
+#gameshub-bg{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  #gameshub-img{
+    top: 60px;
+    position: absolute;
+    width: 90%;
+    height: 650px;
+    margin: 0 auto;
+  }
+
+  #gamesInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    height: 100px;
+    margin-top: 20px;
+    background: rgba(226, 226, 226, 0.6);
+    border-radius: 10px;
+    font-size: 16px;
+  }
 }

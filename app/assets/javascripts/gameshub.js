@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-  console.log('this is the loading page')
 	var
 		carousels = document.querySelectorAll('.carousel')
 	;
@@ -14,6 +13,8 @@ function carousel(root) {
 	var
 		figure = root.querySelector('figure'),
 		navBttn = document.getElementById('gamesNav'),
+    gameLink = document.getElementById("game-link"),
+    description = document.getElementById("description"),
 		images = figure.children,
 		n = images.length,
 		gap = root.dataset.gap || 0,
@@ -54,22 +55,41 @@ function carousel(root) {
 		navBttn.addEventListener('click', onClick, true);
 
 	}
+  var gameImage = 0;
 
   function onClick(e) {
-    console.log(e)
     e.stopPropagation();
 
     var t = e.target;
-    if (t.tagName.toUpperCase() != 'BUTTON')
-      return;
-
       if (t.classList.contains('next')) {
-        console.log('whatever +')
         currImage++;
+        if (gameImage != n-1){
+          gameImage++;
+          console.log(gameLink);
+        } else {
+          gameImage = 0;
+          console.log(gameLink);
+        }
       }
-      else {
-        console.log('whatever -')
+      else if (t.classList.contains('prev')) {
         currImage--;
+        if (gameImage != 0){
+          gameImage--;
+          console.log(gameLink);
+        } else {
+          gameImage = n-1;
+          console.log(gameLink);
+        }
+      } else {}
+      if (gameImage == 0){
+        gameLink.setAttribute("href", "/games/pokeclimb");
+        description.innerHTML = "Tap/Click to Jump! Climb Bulbasaur's vines to reach high scores and collect coins! Avoid the other Pokémon!";
+      } else if (gameImage == 1){
+        gameLink.setAttribute("href", "/games/hangman");
+        description.innerHTML = "Hangman!";
+      } else {
+        gameLink.setAttribute("href", "/games/ekans");
+        description.innerHTML = "Snake!";
       }
 
     rotateCarousel(currImage);
@@ -78,5 +98,4 @@ function carousel(root) {
 	function rotateCarousel(imageIndex) {
 		figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
 	}
-
 }
