@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+  console.log('hello')
 var letters = document.getElementsByClassName("letters")
 var usedLetters = document.getElementById("usedLetters")
 var pokemonName = document.getElementById("pokemonName")
