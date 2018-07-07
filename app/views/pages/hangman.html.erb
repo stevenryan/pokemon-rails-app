@@ -1,7 +1,7 @@
 <div id="youWin" class="modalWin">
     <div class="contentWin">
-      <img id="dex" src="images/pokedex-bg.gif" alt="">
-      <img id="profOak" src="images/oak-win.png" alt="">
+      <%= image_tag("hangman/pokedex-bg.gif", id: "dex") %>
+      <%= image_tag("hangman/oak-win.png", id: "profOak") %>
       <p class="pokeText"> Nice catch!<br><br><a href="#" id="resetLink">Play Again?</a></p>
 
       <div class="bgWhite"></div>
@@ -18,9 +18,9 @@
 
   <div id="youLose" class="modalLose">
     <div class="contentLose">
-      <img id="rivalGary" src="images/gary-lose.png" alt="">
-      <img id="badges" src="images/kanto-badges.png" alt="">
-      <img id="textBox" src="images/textbox.png" alt="">
+      <%= image_tag("hangman/gary-lose.png", id: "rivalGary") %>
+      <%= image_tag("hangman/kanto-badges.png", id: "badges") %>
+      <%= image_tag("hangman/textbox.png", id: "textBox") %>
       <img id="pokeImg3" src="" alt="">
       <div class="loseDiv">
         <p id="loseText"></p>
