@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/games/hangman', to: 'pages#hangman'
   get '/games/pokeclimb', to: 'pages#pokeclimb'
   get '/games/ekans', to: 'pages#pokesnake'
+  get '/games/show', to: 'pages#show'
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

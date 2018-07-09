@@ -2,7 +2,7 @@
     <div class="contentWin">
       <%= image_tag("hangman/pokedex-bg.gif", id: "dex") %>
       <%= image_tag("hangman/oak-win.png", id: "profOak") %>
-      <p class="pokeText"> Nice catch!<br><br><a href="#" id="resetLink">Play Again?</a></p>
+      <p class="pokeText"> Nice catch!<br><br><a href="#" id="resetLink" data-turbolinks="false">Play Again?</a></p>
 
       <div class="bgWhite"></div>
       <div class="dexDisplay">
@@ -24,7 +24,7 @@
       <img id="pokeImg3" src="" alt="">
       <div class="loseDiv">
         <p id="loseText"></p>
-        <a href="#" id="resetLink2">Try Again?</a>
+        <a href="#" id="resetLink2" data-turbolinks="false">Try Again?</a>
       </div>
     </div>
   </div>
@@ -97,9 +97,9 @@
       </div>
 
       <div class="resetKey">
-        <button id="resetBttn">RESET</button>
+        <button id="resetBttn" data-turbolinks="false">RESET</button>
       </div>
 
-      <% javascript_include_tag 'hangman.js' %>
+      <%= javascript_include_tag 'games/hangman.js' %>
     </div>
   </div>

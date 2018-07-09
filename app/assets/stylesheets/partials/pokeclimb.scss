@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+canvas {
+    touch-action-delay: none;
+    touch-action: none;
+    -ms-touch-action: none;
+}
+
+#wrongorientation{
+    background: url("images/wrongorientation.png") no-repeat center center fixed;
+    background-size: contain;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    display: none;
+}

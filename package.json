@@ -1,5 +1,7 @@
 {
   "name": "poke-center",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "pokeapi-js-wrapper": "^1.1.1"
+  }
 }
