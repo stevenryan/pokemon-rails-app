@@ -23,6 +23,9 @@ var resetLink = document.getElementById("resetLink")
 var youWin = document.getElementById("youWin")
 var youLose = document.getElementById("youLose")
 var loseText = document.getElementById("loseText")
+var score = document.getElementById("score")
+var timer = document.getElementById("timer")
+var dexContent = document.getElementById("dexContent")
 var entries = []
 var lives
 
@@ -83,18 +86,24 @@ var entry42 = new Pokedex1("Golbat", 42, "Poison", "Flying", "Once it strikes, i
 setTimeout(newGame(), 1000);
 
 function newGame(){
+  timer.innerHTML = 01 + ":" + 01;
+  points = 0;
   lives = 6;
+  generateName();
   hintDisplay();
   livesDisplay();
-  guessedLetters = [];
-  usedLetters.innerHTML = ""
+  startTimer();
+  score.innerHTML = points
 
-  for(let x=0; x<letters.length; x++){letters[x].disabled = false;}
-
-  randomNum = Math.floor(Math.random() * Math.floor(entries.length));
-  pokeActual = entries[randomNum].name.toUpperCase().split("");
-  pokeHidden = pokeActual.map(function(x){return "_"});
-  pokemonName.innerHTML = pokeHidden.join(" ");
+  function generateName(){
+    for(let x=0; x<letters.length; x++){letters[x].disabled = false;}
+    guessedLetters = [];
+    usedLetters.innerHTML = ""
+    randomNum = Math.floor(Math.random() * Math.floor(entries.length));
+    pokeActual = entries[randomNum].name.toUpperCase().split("");
+    pokeHidden = pokeActual.map(function(x){return "_"});
+    pokemonName.innerHTML = pokeHidden.join(" ");
+  }
 
   function livesDisplay(){
     if (lives === 6) {
@@ -165,7 +174,35 @@ function newGame(){
         letters[i].disabled = true;
       }
       if(pokeHidden.includes('_')==false){
-        winModal();
+        // winModal();
+        var contentWin = document.createElement("div")
+        contentWin.setAttribute("id", "contentWIn");
+        var dexDisplay = document.createElement("div")
+        dexDisplay.setAttribute("id", "dexDisplay");
+        var pokeImg = document.createElement("img")
+        pokeImg.setAttribute("id", "pokeImg");
+        pokeImg.src = "../officialArt/"+entries[randomNum].dexNum+".png"
+        var pokeImg2 = document.createElement("img")
+        pokeImg2.setAttribute("id", "pokeImg2");
+        pokeImg2.src = "../sprites/"+entries[randomNum].dexNum+".png"
+        dexDisplay.appendChild(pokeImg);
+        dexDisplay.appendChild(pokeImg2);
+        contentWin.appendChild(dexDisplay);
+        var dexInfo = document.createElement("div");
+        dexInfo.setAttribute("id", "dexInfo");
+        var pokeInfo = document.createElement("p");
+        pokeInfo.setAttribute("id", "pokeInfo");
+        pokeInfo.innerHTML = entries[randomNum].description;
+        dexInfo.appendChild(pokeInfo);
+        contentWin.appendChild(dexInfo);
+        dexContent.appendChild(contentWin);
+
+        setTimeout (function(){
+          generateName();
+          hintDisplay();}, 500);
+
+        points ++;
+        score.innerHTML = points;
       }
     })
   }
@@ -207,15 +244,34 @@ function typeColor(type){
 
 function winModal(){
   setTimeout (function(){youWin.style.display = "block";}, 1000);
-  pokeImg.src = "../officialArt/"+entries[randomNum].dexNum+".png"
-  pokeImg2.src = "../sprites/"+entries[randomNum].dexNum+".png"
-  pokeInfo.innerHTML = entries[randomNum].description
 }
 
 function loseModal(){
   setTimeout (function(){youLose.style.display = "block";}, 1000);
   loseText.innerHTML = "It's "+entries[randomNum].name+"! Loser, you'll never be a Pokemon Champion!"
   pokeImg3.src = "../sprites/"+entries[randomNum].dexNum+".png"
+}
+
+function startTimer(){
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+
+  document.getElementById('timer').innerHTML =
+  m + ":" + s;
+  setTimeout(startTimer, 1000);
+
+    if(m == 0 && s == 00){
+      winModal();
+    }
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
 }
 
 resetLink.addEventListener('click', function(){

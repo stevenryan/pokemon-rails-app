@@ -1,18 +1,9 @@
 <div id="youWin" class="modalWin">
-    <div class="contentWin">
+    <div id="dexContent">
       <%= image_tag("hangman/pokedex-bg.gif", id: "dex") %>
       <%= image_tag("hangman/oak-win.png", id: "profOak") %>
       <p class="pokeText"> Nice catch!<br><br><a href="#" id="resetLink" data-turbolinks="false">Play Again?</a></p>
-
       <div class="bgWhite"></div>
-      <div class="dexDisplay">
-        <img id="pokeImg" src="">
-        <img id="pokeImg2" src="">
-      </div>
-
-      <div class="dexInfo">
-        <p id="pokeInfo"></p>
-      </div>
     </div>
   </div>
 
@@ -44,24 +35,37 @@
         <p><strong>Used Letters:</strong></p><p id="usedLetters"></p>
       </div>
 
-      <div class="lives">
-        <p><strong>Lives:</strong></p>
-        <%= image_tag("hangman/pokeball-life.png", id: "life1") %>
-        <%= image_tag("hangman/pokeball-life.png", id: "life2") %>
-        <%= image_tag("hangman/pokeball-life.png", id: "life3") %>
-        <%= image_tag("hangman/pokeball-life.png", id: "life4") %>
-        <%= image_tag("hangman/pokeball-life.png", id: "life5") %>
-        <%= image_tag("hangman/pokeball-life.png", id: "life6") %>
-      </div>
+      <div class="display-bottom-row">
+        <div class="lives">
+          <p><strong>Lives:</strong></p>
+          <%= image_tag("hangman/pokeball-life.png", id: "life1") %>
+          <%= image_tag("hangman/pokeball-life.png", id: "life2") %>
+          <%= image_tag("hangman/pokeball-life.png", id: "life3") %>
+          <%= image_tag("hangman/pokeball-life.png", id: "life4") %>
+          <%= image_tag("hangman/pokeball-life.png", id: "life5") %>
+          <%= image_tag("hangman/pokeball-life.png", id: "life6") %>
+        </div>
 
-      <div class="hintSection">
-        <button id="hintBttn" title="Need a hint?">Show Hint</button>
-        <div id="hintBox">
-          <p class"typeTitle"><strong>Type:</strong></p>
-          <div id="type"></div>
-          <div id="type2"></div>
+        <div class="score">
+          <p><strong>Score:</strong></p><p id="score">0</p>
         </div>
       </div>
+
+      <div class="display-right-column">
+        <div class="timerSection">
+          <p><strong>Timer:</strong></p><p id="timer"></p>
+        </div>
+
+        <div class="hintSection">
+          <button id="hintBttn" title="Need a hint?">Show Hint</button>
+          <div id="hintBox">
+            <p class"typeTitle"><strong>Type:</strong></p>
+            <div id="type"></div>
+            <div id="type2"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="keyboard">
       <div class="row1">
