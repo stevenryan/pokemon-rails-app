@@ -13,4 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 # Rails.application.config.assets.precompile += %w( gameshub.js )
-Rails.application.config.assets.precompile += %w( hangman.js )
+Rails.application.config.assets.precompile += %w( games/hangman.js )
+Rails.application.config.assets.precompile += %w( phaser.min.js )
+Rails.application.config.assets.precompile += %w( games/pokeclimb.js )
+Rails.application.config.assets.precompile += %w( games/pokesnake.js )

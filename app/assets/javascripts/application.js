@@ -13,6 +13,12 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+
 //= require jquery
 //= require bootstrap-sprockets
+
+//= require ./room.js
+//= require ./cable.js
+//= require ./rooms.coffee
+//= require ./pages.coffee
+//= require ./gameshub.js
