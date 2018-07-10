@@ -1,11 +1,11 @@
 <div class="message">
-  <a href="" class="message_profile-pic"></a>
-  <a href="" class="message_username"><%= message.user.username %></a>
-  <span class="message_timestamp">
-    <%= message.created_at %>
-  </span>
-  <span class="message_star"></span>
+  <% profile = message.user.icon %>
+  <%= image_tag(profile, id: "text-profile") %>
+  <a href="" class="message_username"><%= message.user.username %>:</a>
   <span class="message_content">
     <%= message.content %>
   </span>
+</div>
+<div class="message_timestamp">
+  <%= message.created_at %>
 </div>

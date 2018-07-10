@@ -11,14 +11,38 @@
   background: image-url('lightning-banner.png');
   background-size: cover;
   border-radius: 5px;
+  .trainer-option{
+    margin: 10px 5px;
+    height: 32px;
+    background: rgba(240, 240, 240, 0.65);
+    border-radius: 3px;
+    .chat-link{
+      margin: 10px 0;
+    }
+    #chat-profile{
+      width: 32px;
+      float: left;
+      border-radius: 3px;
+      margin: 0 10px;
+    }
+  }
+}
+.message{
+  padding: 5px;
+  border-radius: 5px;
+  background: rgba(240, 240, 240, 0.65);
+  #text-profile{
+    width: 32px;
+  }
 }
 
-.player-link{
+.message_timestamp{
+  margin: 0 0 10px 40px;
 }
 
 #messages{
   margin: 20px 50px 10px 10px;
-  padding: 10px 0 0 10px;
+  padding: 10px;
   height: 75vh;
   max-height: 75vh;
   overflow: auto;

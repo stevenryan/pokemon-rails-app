@@ -3,9 +3,11 @@
     <div id="side-menu"  class="col-sm-3">
       <div id="trainer-list">
         <% @users.each do |u| %>
-        <div class="player-link">
-          <a href="#"><%= u.username %></a>
-        </div>
+          <div class="trainer-option">
+            <% profile = u.icon %>
+            <%=image_tag(profile, id: "chat-profile") %>
+            <a href="#" class="chat-link"><%= u.username %></a>
+          </div>
         <% end %>
       </div>
       <div class="theme-bttns">
