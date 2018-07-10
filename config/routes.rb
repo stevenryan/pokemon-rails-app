@@ -10,14 +10,18 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
-  end
-
-  devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
+
+    authenticated do
+      root to: 'pages#index'
+    end
+
+    unauthenticated  do
+      root to: 'devise/sessions#new'
+    end
   end
 
   devise_for :users, :controllers => {:registrations => "registrations"}
-  root to: 'pages#index'
 
   resources :users
 end
