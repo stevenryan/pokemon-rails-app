@@ -1,4 +1,49 @@
-<p>Coins: </p>
-<p>Pokeclimb: </p>
-<p>Hangman: </p>
-<p>Snake: </p>
+<div class="container">
+  <div class="row">
+    <div id="profile-top" class="col-sm-9">
+      <div id="profile-image-div">
+        <% profile = current_user.icon %>
+        <%=image_tag(profile, id: "profile-image") %>
+      </div>
+      <div id="profile-info">
+        <h3><strong><%=current_user.username %></strong></h3>
+        <p><%=current_user.email %></p>
+        <% if current_user.showdownId != "" %>
+
+        <h3><strong>Showdown ID</strong></h3>
+        <p><%=current_user.showdownId %></p>
+        <% end %>
+      </div>
+
+      <div id="pofile-coins" class="profile-scores">
+        <h3><strong>Coins</strong></h3>
+        <p><%=current_user.coins %></p>
+      </div>
+      <div id="pofile-hangman" class="profile-scores">
+        <h3><strong>Hangman</strong></h3>
+        <p><%=current_user.hangman_score %></p>
+      </div>
+      <div id="pofile-climb" class="profile-scores">
+        <h3><strong>PokéClimb</strong></h3>
+        <p><%=current_user.climb_score %></p>
+      </div>
+      <div id="pofile-snake" class="profile-scores">
+        <h3><strong>Snake</strong></h3>
+        <p><%=current_user.snake_score %></p>
+      </div>
+    </div>
+
+    <div id="profile-bottom" class="col-sm-9">
+      <div class="">
+        <h3><%=current_user.username%>'s Pokémon Cards</h3>
+      </div>
+      <div id="card-section">
+        <% @cards.each do |c| %>
+          <% if c.user_id == current_user.id %>
+            <img src="<%=c.imageLink%>" alt="">
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

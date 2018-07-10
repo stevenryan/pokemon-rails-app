@@ -1,0 +1,49 @@
+#profile-top{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+  padding: 10px;
+  background: rgba(240, 240, 240, .9);
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 10px;
+  h3{
+    font-family: generalText;
+  }
+  #profile-image{
+    width: 170px;
+    border-radius: 5px;
+  }
+  #profile-info{
+    h3, p{
+      margin-left: 10px;
+    }
+  }
+  .profile-scores{
+    text-align: center;
+    padding: 10px;
+    border-left: 2px solid $navbarColor;
+    h3{
+      color: $navbarColor;
+    }
+    p{
+      font-family: generalText;
+      font-size: 20px;
+    }
+  }
+}
+
+#profile-bottom{
+  padding: 10px;
+  background: rgba(240, 240, 240, .9);
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  h3{
+    font-family: generalText;
+    color: $navbarColor;
+  }
+  #card-section{
+    margin-top: 40px;
+  }
+}

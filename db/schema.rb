@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_10_153000) do
+ActiveRecord::Schema.define(version: 2018_07_10_175105) do
 
   create_table "cards", force: :cascade do |t|
     t.string "set", default: "", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_07_10_153000) do
     t.string "imageLink", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "imageUrl", default: "", null: false
   end
 
   create_table "messages", force: :cascade do |t|
