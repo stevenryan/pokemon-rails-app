@@ -1,5 +1,5 @@
 // Carousel configuration parameters
-$item-width: 70%; // Now we can use percentages!
+$item-width: 75%; // Now we can use percentages!
 $item-separation: 0px; // This now is set with Js
 $viewer-distance: 500px;
 
@@ -42,7 +42,8 @@ $viewer-distance: 500px;
 	#gamesNav {
 		display: flex;
 		justify-content: center;
-		margin: 20px 0 0;
+		margin: 15px 0;
+    font-family: generalText;
 
 		button, .btn, .btn-default{
 			flex: 0 0 auto;
@@ -56,7 +57,11 @@ $viewer-distance: 500px;
 			letter-spacing: 1px;
 			padding: 5px 10px;
 		}
-
+    button:hover, a:hover{
+      background-color: $navbarColor;
+      border: 1px solid white;
+      color: white;
+    }
     button:focus{
       outline: 0;
     }
@@ -64,27 +69,23 @@ $viewer-distance: 500px;
 }
 
 #gameshub-bg{
-  width: 100%;
+  width: 75%;
+  height: 93.5vh;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-
-  #gameshub-img{
-    top: 60px;
-    position: absolute;
-    width: 90%;
-    height: 650px;
-    margin: 0 auto;
-  }
+  background: url('white-grid-tile.jpg');
 
   #gamesInfo{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
+    width: 75%;
     height: 100px;
     margin-top: 20px;
     background: rgba(226, 226, 226, 0.6);
     border-radius: 10px;
-    font-size: 16px;
+    font-family: generalText;
+    font-size: 10px;
   }
 }

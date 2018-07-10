@@ -22,4 +22,3 @@
 //= require ./rooms.coffee
 //= require ./pages.coffee
 //= require ./gameshub.js
-//= require ./chatThemes.js

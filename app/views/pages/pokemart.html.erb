@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div id="storeWorker" class="col-sm-4">
+      <%= image_tag("pokemart-logo.png", id: "pokemart-logo") %>
+      <%= image_tag("pokemart-workers.png", id: "pokemart-workers") %>
+      <%= image_tag("textbox.png", id: "text-box") %>
+      <div id="store-text-placement">
+        <p id="store-text">Welcome to the PokéMart!</p>
+      </div>
+      <div class="store-bttns">
+          <button type="button" id="buy-icons" class="shop-bttn">
+            <%= image_tag("20g.png") %><span>Portraits [20g]</span>
+          </button>
+          <button type="button" id="buy-cards" class="shop-bttn">
+            <%= image_tag("50g.png") %><span>Pokémon Cards [50g]</span>
+          </button>
+      </div>
+    </div>
+
+    <div id="storeStock" class="col-sm-8">
+      <div id="icon-selection">
+        <div class="original-icons">
+          <h1>Original Gen I Sprites</h1>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/original/sprite-ash.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/original/sprite-brock.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/original/sprite-misty.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/original/sprite-rival.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/original/sprite-rocket.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/original/sprite-giovanni.png") %></button>
+        </div>
+
+        <div class="poke-icons">
+          <h1>Pokemon Portraits</h1>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-growlithe.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-squirtle.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-pidgeotto.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-machop.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-kakuna.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-staryu.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-snorlax.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-nidoking.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-lapras.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/pokemon/portrait-mew.png") %></button>
+        </div>
+
+        <div class="character-icons">
+          <h1>Misc Character Portraits</h1>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/characters/icon-may.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/characters/icon-brendan.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/characters/icon-archie.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/characters/icon-lass.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/characters/icon-picnickerF.png") %></button>
+          <button type="button" class="portrait-bttn"><%= image_tag("portraits/characters/icon-hiker.png") %></button>
+        </div>
+      </div>
+      <div id="card-selection">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'pokemart.js' %>

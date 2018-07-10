@@ -4,7 +4,7 @@ window.onload = function() {
     var head, tail, cursors, snake, pokemon, gameText, playerDirection;
     var directions = Object.freeze({up: 0, down: 1, right: 2, left: 3});
 
-    var canvasWidth = 896, canvasHeight = 704;
+    var canvasWidth = 896, canvasHeight = 640;
     var playerSize = 64;
     var x = 64, y = 0;
     var frameCounter = 0;
@@ -111,6 +111,12 @@ window.onload = function() {
 
     function create() {
         game.add.image(0, 0, 'background');
+        // game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+        // centering the canvas horizontally and vertically
+        game.scale.pageAlignHorizontally = true;
+        // game.scale.pageAlignVertically = true;
+
         gameText = game.add.text(canvasWidth, 0, "0", {
             font: "28px Arial",
             fill: "#000000",
@@ -178,9 +184,9 @@ window.onload = function() {
         pokemon = game.add.image(0, 0, randomNum);
         do {
             pokemon.position.x = Math.floor(Math.random() * 14) * 64;
-            pokemon.position.y = Math.floor(Math.random() * 11) * 64;
+            pokemon.position.y = Math.floor(Math.random() * 10) * 64;
         } while (pokemonCollide());
-        //generates random (x,y) location on a 64x64 grid
+        //generates random (x,y) location on a grid of 64x64 tiles
     }
 
     function newHead(x, y) {

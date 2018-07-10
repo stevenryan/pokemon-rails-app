@@ -61,7 +61,7 @@ var entry17 = new Pokedex1("Pidgeotto", 17, "Normal", "Flying", "This Pokémon i
 var entry18 = new Pokedex1("Pidgeot", 18, "Normal", "Flying", "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons.")
 var entry19 = new Pokedex1("Rattata", 19, "Normal", "", "Bites anything when it attacks. Small and very quick, it is a common sight in many places.")
 var entry20 = new Pokedex1("Raticate", 20, "Normal", "", "Gnaws on anything with its tough fangs. It can even topple concrete buildings by gnawing on them.")
-var entry21 = new Pokedex1("Spearow", 21, "Normal", "Very protective of its territory, it flaps its short wings busily to dart around at high speed.")
+var entry21 = new Pokedex1("Spearow", 21, "Normal", "Flying", "Very protective of its territory, it flaps its short wings busily to dart around at high speed.")
 var entry22 = new Pokedex1("Fearow", 22, "Normal", "Flying", "It shoots itself suddenly high into the sky, then plummets down in one fell swoop to strike its prey.")
 var entry23 = new Pokedex1("Ekans", 23, "Poison", "", "Moves silently and stealthily. Eats the eggs of birds, such as Pidgey and Spearow, whole.")
 var entry24 = new Pokedex1("Arbok", 24, "Poison", "", "Transfixing prey with the face-like pattern on its belly, it binds and poisons the frightened victim.")
@@ -83,6 +83,9 @@ var entry39 = new Pokedex1("Jigglypuff", 39, "Normal", "", "Uses its alluring ey
 var entry40 = new Pokedex1("Wigglytuff", 40, "Normal", "", "Their fur feels so good that if two of them snuggle together, they won't want to be separated.")
 var entry41 = new Pokedex1("Zubat", 41, "Poison", "Flying", "Forms colonies in perpetually dark places. Uses ultrasonic waves to identify and approach targets.")
 var entry42 = new Pokedex1("Golbat", 42, "Poison", "Flying", "Once it strikes, it will not stop draining energy from the victim even if it gets too heavy to fly.")
+var entry42 = new Pokedex1("Oddish", 43, "Grass", "Poison", "During the day, it keeps its face buried in the ground. At night, it wanders around sowing its seeds.")
+var entry42 = new Pokedex1("Gloom", 44, "Grass", "Poison", "The fluid that oozes from its mouth isn't drool. It is a nectar that is used to attract prey.")
+var entry42 = new Pokedex1("Vileplume", 45, "Grass", "Poison", "It has the world's largest petals. With every step, the petals shake out heavy clouds of toxic pollen.")
 
 setTimeout(newGame(), 1000);
 
@@ -271,12 +274,6 @@ function startTimer(){
       slideIndex = 1;
       winModal();
       showSlides(slideIndex);
-
-      Rails.ajax({
-        url: "/posting",
-        type: "POST",
-        data: 
-      });
     }
 }
 

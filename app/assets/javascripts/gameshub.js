@@ -83,13 +83,13 @@ function carousel(root) {
       } else {}
       if (gameImage == 0){
         gameLink.setAttribute("href", "/games/pokeclimb");
-        description.innerHTML = "Tap/Click to Jump! Climb Bulbasaur's vines to reach high scores and collect coins! Avoid the other Pokémon!";
+        description.innerHTML = "Tap/Click to Jump! Climb Bulbasaur's vines and avoid the other Pokémon!";
       } else if (gameImage == 1){
         gameLink.setAttribute("href", "/games/hangman");
-        description.innerHTML = "Hangman!";
+        description.innerHTML = "How many Pokémon can you name before the timer runs out?";
       } else {
         gameLink.setAttribute("href", "/games/ekans");
-        description.innerHTML = "Snake!";
+        description.innerHTML = "Your class snake game!";
       }
 
     rotateCarousel(currImage);
