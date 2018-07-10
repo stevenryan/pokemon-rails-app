@@ -1,5 +1,4 @@
 window.addEventListener('load', () => {
-  console.log('hello');
 
 var letters = document.getElementsByClassName("letters")
 var usedLetters = document.getElementById("usedLetters")
@@ -26,8 +25,10 @@ var loseText = document.getElementById("loseText")
 var score = document.getElementById("score")
 var timer = document.getElementById("timer")
 var dexContent = document.getElementById("dexContent")
+var dexEntry = document.getElementById("dexEntry")
 var entries = []
 var lives
+var slideIndex
 
 class Pokedex1{
   constructor(name, dexNum, type, type2, description){
@@ -90,7 +91,6 @@ function newGame(){
   points = 0;
   lives = 6;
   generateName();
-  hintDisplay();
   livesDisplay();
   startTimer();
   score.innerHTML = points
@@ -103,6 +103,7 @@ function newGame(){
     pokeActual = entries[randomNum].name.toUpperCase().split("");
     pokeHidden = pokeActual.map(function(x){return "_"});
     pokemonName.innerHTML = pokeHidden.join(" ");
+    hintDisplay();
   }
 
   function livesDisplay(){
@@ -130,28 +131,30 @@ function newGame(){
   }
 
   function hintDisplay(){
-    var hintShow = false;
-    hintBttn.innerHTML = "Show Hint"
-    hintBox.style.visibility = "hidden";
-    hintBttn.addEventListener("click", function(){
-      if (hintShow === false){
-        hintBox.style.visibility = "visible";
-        hintBttn.innerHTML = "Hide Hint";
-        type.innerHTML = entries[randomNum].type;
-        type.style.backgroundColor = typeColor(entries[randomNum].type)
-        type2.innerHTML = entries[randomNum].type2;
-        if (entries[randomNum].type2===""){
-          type2.style.visibility = "hidden"
-        } else {
-          type2.style.backgroundColor = typeColor(entries[randomNum].type2)
-        }
-        hintShow = true;
-      } else {
-        hintBox.style.visibility = "hidden";
-        hintBttn.innerHTML = "Show Hint"
-        hintShow = false;
-      }
-    })
+    // var hintShow = false;
+    // hintBox.style.visibility = "hidden";
+    // hintBttn.innerHTML = "Show Hint"
+    type.innerHTML = entries[randomNum].type;
+    type2.innerHTML = entries[randomNum].type2;
+    type.style.backgroundColor = typeColor(entries[randomNum].type)
+    if (type2.innerHTML===""){
+      type2.style.visibility = "hidden"
+    }
+    else {
+      type2.style.visibility = "visible"
+      type2.style.backgroundColor = typeColor(entries[randomNum].type2)
+    }
+    // hintBttn.addEventListener("click", function(){
+    //   if (hintShow === false){
+    //     hintBox.style.visibility = "visible";
+    //     hintBttn.innerHTML = "Hide Hint";
+    //     hintShow = true;
+    //   } else {
+    //     hintBox.style.visibility = "hidden";
+    //     hintBttn.innerHTML = "Show Hint"
+    //     hintShow = false;
+    //   }
+    // })
   }
 
   for(let i=0; i<letters.length; i++){
@@ -176,30 +179,31 @@ function newGame(){
       if(pokeHidden.includes('_')==false){
         // winModal();
         var contentWin = document.createElement("div")
-        contentWin.setAttribute("id", "contentWIn");
+        contentWin.setAttribute("class", "contentWin");
+        // contentWin.classList.add("fade");
+        contentWin.classList.add("mySlides");
         var dexDisplay = document.createElement("div")
-        dexDisplay.setAttribute("id", "dexDisplay");
+        dexDisplay.setAttribute("class", "dexDisplay");
+        contentWin.appendChild(dexDisplay);
         var pokeImg = document.createElement("img")
-        pokeImg.setAttribute("id", "pokeImg");
+        pokeImg.setAttribute("class", "pokeImg");
         pokeImg.src = "../officialArt/"+entries[randomNum].dexNum+".png"
         var pokeImg2 = document.createElement("img")
-        pokeImg2.setAttribute("id", "pokeImg2");
+        pokeImg2.setAttribute("class", "pokeImg2");
         pokeImg2.src = "../sprites/"+entries[randomNum].dexNum+".png"
         dexDisplay.appendChild(pokeImg);
         dexDisplay.appendChild(pokeImg2);
-        contentWin.appendChild(dexDisplay);
         var dexInfo = document.createElement("div");
-        dexInfo.setAttribute("id", "dexInfo");
+        dexInfo.setAttribute("class", "dexInfo");
         var pokeInfo = document.createElement("p");
-        pokeInfo.setAttribute("id", "pokeInfo");
+        pokeInfo.setAttribute("class", "pokeInfo");
         pokeInfo.innerHTML = entries[randomNum].description;
         dexInfo.appendChild(pokeInfo);
         contentWin.appendChild(dexInfo);
-        dexContent.appendChild(contentWin);
+        dexEntry.appendChild(contentWin);
 
         setTimeout (function(){
-          generateName();
-          hintDisplay();}, 500);
+          generateName();}, 500);
 
         points ++;
         score.innerHTML = points;
@@ -264,7 +268,15 @@ function startTimer(){
   setTimeout(startTimer, 1000);
 
     if(m == 0 && s == 00){
+      slideIndex = 1;
       winModal();
+      showSlides(slideIndex);
+
+      Rails.ajax({
+        url: "/posting",
+        type: "POST",
+        data: 
+      });
     }
 }
 
@@ -274,17 +286,53 @@ function checkSecond(sec) {
   return sec;
 }
 
+var prevEntry = document.getElementById("prevEntry")
+prevEntry.addEventListener("click", function(){
+  plusSlides(-1)})
+var nextEntry = document.getElementById("nextEntry")
+nextEntry.addEventListener("click", function(){
+  plusSlides(1)})
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
+
 resetLink.addEventListener('click', function(){
+  while (dexEntry.firstChild) {
+    dexEntry.removeChild(dexEntry.firstChild);
+  }
   youWin.style.display = "none"
-  newGame();
+  location.reload();
 });
 
 resetLink2.addEventListener('click', function(){
+  while (dexEntry.firstChild) {
+    dexEntry.removeChild(dexEntry.firstChild);
+  }
   youLose.style.display = "none"
-  newGame();
+  location.reload();
 });
 
 resetBttn.addEventListener('click', function(){
-  newGame();
+  while (dexEntry.firstChild) {
+    dexEntry.removeChild(dexEntry.firstChild);
+  }
+  location.reload();
 });
 })

@@ -5,4 +5,7 @@ class PagesController < ApplicationController
     @users = User.all
   end
 
+  def hangman
+    @score = current_user.hangman_score
+  end
 end

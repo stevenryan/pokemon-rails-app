@@ -115,13 +115,18 @@
   width: 50px;
   margin: 0 auto; }
 
+.hintSection {
+  grid-row-start: 2;
+  grid-row-end: 4;
+  padding: 2px;}
+
 #hintBttn {
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
   outline: 0;
   float: right;
   width: 50%;
-  margin-right: 25% }
+  margin-right: 25%; }
 
 #hintBox {
   text-align: center;
@@ -132,7 +137,7 @@
   font-size: 12px; }
 
 #type {
-  margin: 40px auto 40px auto;
+  margin: 40px auto 30px auto;
   padding: 20px 0px;
   width: 80%;
   border-radius: 10px;
@@ -171,11 +176,6 @@
     font-size: 28px;
   }
 }
-
-.hintSection {
-  grid-row-start: 2;
-  grid-row-end: 4;
-  padding: 2px;}
 
 .keyboard {
   width: 80%;
@@ -281,7 +281,8 @@
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
-  font-family: generalText;}
+  font-family: generalText;
+  overflow: auto;}
 
 .pokeText {
   position: absolute;
@@ -297,7 +298,7 @@
   position: absolute;
   display: inline;
   top: 2px;
-  left: 2px; }
+  left: 2px;}
 
 #dex {
   width: 100%;
@@ -313,43 +314,47 @@
   top: 30px;
   right: 50px; }
 
-#contentWin {
-  border: 2px solid red;
-  max-height: 500px;
-  overflow: auto;
+#dexEntry{
+  max-height: 520px;
+  height: 520px;
+  width: 700px;
+  overflow: scroll;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  z-index: 2;
+}
+.mySlides{
+  display: none;
 }
 
-#dexDisplay {
-  // position: absolute;
-  width: 60%;
-  top: 70px;
-  left: 20px;
-  border: 2px solid green;}
+.contentWin {
+  height: 100%;
+  width: 100%;
+}
 
-#pokeImg {
-  max-width: 300px;
-  // position: absolute;
-  left: 60px;
-  border: 2px solid blue;}
+.dexDisplay {
+  width: 90%;
+  margin: 0 auto;}
 
-#pokeImg2 {
+.pokeImg {
+  max-width: 350px;
+  margin: 10px 35px;}
+
+.pokeImg2 {
   width: 150px;
-  // position: absolute;
-  right: 80px;
-  top: 65px;
-  border: 2px solid orange;}
+  position: absolute;
+  margin-left: 10px;
+  bottom: 152px;}
 
-#dexInfo {
-  // position: absolute;
-  width: 680px;
-  bottom: 110px;
-  left: 27px;
+.dexInfo {
+  position: absolute;
+  bottom: 0px;
   text-align: center;
   font-size: 14px;
   padding: 5px;
   background-color: #ccffcc;
-  border-radius: 5px;
-  border: 2px solid purple}
+  border-radius: 5px;}
 
 #resetLink {
   text-decoration: none;
@@ -360,20 +365,6 @@
   font-weight: bold;
   text-shadow: 0 0px 3px #ccffcc; }
 
-@-webkit-keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0; }
-  to {
-    top: 0;
-    opacity: 1; } }
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0; }
-  to {
-    top: 0;
-    opacity: 1; } }
 .modalLose {
   display: none;
   position: fixed;
@@ -443,6 +434,33 @@
   font-weight: bold;
   text-shadow: 0 0px 3px #595959; }
 
+.prevEntry, .nextEntry {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 20px;
+  color: lightgreen;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  z-index: 5;
+}
+.prevEntry{
+  left: 22px;
+  font-size: 30px;
+}
+.nextEntry {
+  right: 432px;
+  border-radius: 3px 0 0 3px;
+  font-size: 30px;
+}
+.prevEntry:hover, .nextEntry:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -457,3 +475,20 @@
   to {
     top: 0;
     opacity: 1; } }
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .5}
+  to {opacity: 1}
+}

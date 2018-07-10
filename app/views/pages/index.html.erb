@@ -1,8 +1,31 @@
-<div class="container">
+<div id="chatroom" class="container">
   <div class="row">
+    <div id="side-menu"  class="col-sm-3">
+      <div id="trainer-list">
+        <% @users.each do |u| %>
+        <div class="player-link">
+          <a href="#"><%= u.username %></a>
+        </div>
+        <% end %>
+      </div>
+      <div class="theme-bttns">
+        <div class="vertical-align">
+          <button type="button" id="theme1"></button>
+          <button type="button" id="theme2"></button>
+          <button type="button" id="theme3"></button>
+          <button type="button" id="theme4"></button>
+        </div>
+      </div>
+    </div><!-- side-menu -->
 
-    <div id="main-content" class="col-sm-12">
-      <%= render 'rooms/show' %>
+    <div class="col-sm-9">
+      <div id="messages">
+        <%= render @messages %>
+      </div>
+      <div class="input-box">
+        <textarea type="text" id="message_input"></textarea>
+        <a href="#" id="sendButton" onclick="sendMessage()">Send</a>
+      </div>
     </div><!-- main-content -->
 
   </div><!-- row -->

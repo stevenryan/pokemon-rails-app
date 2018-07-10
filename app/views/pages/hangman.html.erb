@@ -2,7 +2,11 @@
     <div id="dexContent">
       <%= image_tag("hangman/pokedex-bg.gif", id: "dex") %>
       <%= image_tag("hangman/oak-win.png", id: "profOak") %>
-      <p class="pokeText"> Nice catch!<br><br><a href="#" id="resetLink" data-turbolinks="false">Play Again?</a></p>
+      <p class="pokeText"> Great Catches!<br><br><a href="#" id="resetLink" data-turbolinks="false">Play Again?</a></p>
+      <div id="dexEntry">
+      </div>
+      <a id="prevEntry"class="prevEntry">&#10094;</a>
+      <a id="nextEntry"class="nextEntry">&#10095;</a>
       <div class="bgWhite"></div>
     </div>
   </div>
@@ -57,7 +61,7 @@
         </div>
 
         <div class="hintSection">
-          <button id="hintBttn" title="Need a hint?">Show Hint</button>
+          <!-- <button id="hintBttn" title="Need a hint?">Show Hint</button> -->
           <div id="hintBox">
             <p class"typeTitle"><strong>Type:</strong></p>
             <div id="type"></div>
